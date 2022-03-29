@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     run: nginx
-  name: anyscheduler-test-pod2
+  name: toyscheduler-test-pod2
 spec:
   containers:
   - image: nginx
@@ -16,5 +16,5 @@ spec:
         nvidia.com/gpu: 1
   dnsPolicy: ClusterFirst
   restartPolicy: Always
-  schedulerName: anyscheduler
+  schedulerName: toyscheduler
 status: {}

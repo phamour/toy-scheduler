@@ -2,18 +2,18 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   namespace: kube-system
-  name: toy-gpu-scheduler-sa
+  name: toy-scheduler-sa
   labels:
-    app: toy-gpu-scheduler
-    component: toy-gpu-scheduler
+    app: toy-scheduler
+    component: toy-scheduler
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: toy-gpu-scheduler
+  name: toy-scheduler
 subjects:
 - kind: ServiceAccount
-  name: toy-gpu-scheduler-sa
+  name: toy-scheduler-sa
   namespace: kube-system 
 roleRef:
   kind: ClusterRole
@@ -26,26 +26,26 @@ metadata:
   labels:
     component: kube-scheduler
     tier: control-plane
-    app: toy-gpu-scheduler
-  name: toy-gpu-scheduler
+    app: toy-scheduler
+  name: toy-scheduler
   namespace: kube-system
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: toy-gpu-scheduler
+      app: toy-scheduler
   template:
     metadata:
       labels:
-        app: toy-gpu-scheduler
+        app: toy-scheduler
         component: kube-scheduler
         tier: control-plane
     spec:
       containers:
-      - image: yipengh/toy-gpu-scheduler:devel
-        name: toy-gpu-scheduler
+      - image: yipengh/toy-scheduler:devel
+        name: toy-scheduler
         resources:
           requests:
             cpu: 100m
       priorityClassName: system-node-critical
-      serviceAccount: toy-gpu-scheduler-sa
+      serviceAccount: toy-scheduler-sa

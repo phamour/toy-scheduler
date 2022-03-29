@@ -4,13 +4,13 @@ metadata:
   labels:
     component: kube-scheduler
     tier: control-plane
-  name: toy-gpu-scheduler
+  name: toy-scheduler
   namespace: kube-system
 spec:
   containers:
-  - image: yipengh/toy-gpu-scheduler:devel
+  - image: yipengh/toy-scheduler:devel
     imagePullPolicy: Always
-    name: toy-gpu-scheduler
+    name: toy-scheduler
     resources:
       requests:
         cpu: 100m

@@ -38,7 +38,7 @@ func OutClusterConfig() (*rest.Config, error) {
 }
 
 func main() {
-	klog.Info("Let's go anyscheduler!")
+	klog.Info("Let's go toyscheduler!")
 
 	// kubeconfig
 	config := LoadConfig()

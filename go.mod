@@ -1,4 +1,4 @@
-module anylearn/anyscheduler
+module github.com/yipengh/toy-scheduler
 
 go 1.17
 

@@ -23,7 +23,7 @@ all: build
 
 .PHONY: build
 build: update-vendor
-	$(COMMONENVVAR) $(BUILDENVVAR) go build -o bin/toy-gpu-scheduler
+	$(COMMONENVVAR) $(BUILDENVVAR) go build -o bin/toy-scheduler
 
 .PHONY: update-vendor
 update-vendor:

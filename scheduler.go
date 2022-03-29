@@ -16,7 +16,7 @@ import (
 	"k8s.io/klog/v2"
 )
 
-const SCHEDULER_NAME = "anyscheduler"
+const SCHEDULER_NAME = "toyscheduler"
 
 type Scheduler struct {
 	clientset  *kubernetes.Clientset

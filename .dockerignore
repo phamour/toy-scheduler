@@ -1,0 +1,11 @@
+.git
+.github
+.idea
+.vscode
+.DS_Store
+.dockerignore
+.gitignore
+deploy
+hack/test/
+Dockerfile
+README.md
