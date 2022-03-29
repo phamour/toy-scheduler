@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    component: kube-scheduler
+    tier: control-plane
+  name: toy-gpu-scheduler
+  namespace: kube-system
+spec:
+  containers:
+  - image: yipengh/toy-gpu-scheduler:devel
+    imagePullPolicy: Always
+    name: toy-gpu-scheduler
+    resources:
+      requests:
+        cpu: 100m
+    volumeMounts:
+    - mountPath: /root/.kube/config
+      name: kubeconfig
+      readOnly: true
+  priorityClassName: system-node-critical
+  volumes:
+  - hostPath:
+      path: /etc/kubernetes/scheduler.conf
+      type: FileOrCreate
+    name: kubeconfig

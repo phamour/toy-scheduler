@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: anyscheduler-test-pod4
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    resources:
+      limits:
+        cpu: 1
+        memory: 1Gi
+        nvidia.com/gpu: 1
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  schedulerName: anyscheduler
+status: {}
